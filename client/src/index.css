@@ -1,0 +1,163 @@
+/* src/index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Define Airbnb Red as a CSS variable for consistency */
+:root {
+  --airbnb-red: #FF385C;
+  --airbnb-red-light: rgba(255, 56, 92, 0.4); /* Medium-light opacity */
+  --airbnb-red-lighter: rgba(255, 56, 92, 0.2); /* Even lighter opacity */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #222222;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll from floating elements */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  background-color: #f7f7f7; /* Start with a clean base */
+  position: relative; /* For positioning droplet container */
+  z-index: 1; 
+}
+
+/* Remove default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Base button styles */
+button {
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* --- NEW: MAIN CONTENT WRAPPER FOR LAYERING --- */
+.main-content-wrapper {
+  position: relative;
+  z-index: 5; /* Content above background, below header */
+  flex-grow: 1; /* Allows it to take up available space */
+}
+/* --- NEW: ANIMATED WATER DROPLETS BACKGROUND --- */
+
+/* Container for all droplets, positioned behind main content */
+/* src/index.css */
+
+/* ... (Keep all your existing styles from :root down to .main-content-wrapper) ... */
+
+
+/* --- NEW: ANIMATED BUBBLES BACKGROUND --- */
+
+/* Container for all bubbles, positioned behind main content */
+.droplets-background {
+  position: fixed; /* Fixed to viewport, always visible */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none; /* Clicks pass through */
+  z-index: 0; /* Behind everything */
+}
+
+.droplet {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation-iteration-count: infinite;
+  
+  /* --- NEW: VIBRANT GRADIENT BUBBLE --- */
+  /* This creates a 3D, lit-from-the-top-left bubble */
+  background-image: radial-gradient(
+    circle at 30% 30%, 
+    rgba(255, 100, 128, 0.7),  /* Lighter red "shine" */
+    var(--airbnb-red-light) 80% /* Main medium-light color */
+  );
+  
+  /* --- NEW: SUBTLE GLOW --- */
+  box-shadow: 0 0 20px 5px var(--airbnb-red-lighter);
+}
+
+/* --- NEW: KEYFRAMES FOR ALL DIRECTIONS --- */
+
+/* Floats from bottom to top */
+@keyframes floatUp {
+  0% { transform: translate(0, 110vh) scale(0.8); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translate(10vw, -20vh) scale(1.2); opacity: 0; }
+}
+
+/* Floats from top to bottom */
+@keyframes floatDown {
+  0% { transform: translate(0, -20vh) scale(1); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translate(-10vw, 110vh) scale(0.7); opacity: 0; }
+}
+
+/* Floats from left to right (diagonal) */
+@keyframes floatDiagonalRight {
+  0% { transform: translate(-20vw, 20vh) scale(0.7); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translate(110vw, 80vh) scale(1); opacity: 0; }
+}
+
+/* Floats from right to left (diagonal) */
+@keyframes floatDiagonalLeft {
+  0% { transform: translate(110vw, 30vh) scale(1); opacity: 0; }
+  10%, 90% { opacity: 1; }
+  100% { transform: translate(-20vw, 90vh) scale(0.8); opacity: 0; }
+}
+
+/* --- NEW: APPLYING ANIMATIONS FOR A CHAOTIC "BOUNCY" LOOK --- */
+
+.droplet-1 {
+  width: 80px; height: 80px;
+  left: 5%; /* Start from left */
+  animation: floatUp 25s -2s infinite linear;
+}
+.droplet-2 {
+  width: 120px; height: 120px;
+  left: 20%; /* Start from left */
+  animation: floatUp 30s -8s infinite linear;
+}
+.droplet-3 {
+  width: 100px; height: 100px;
+  left: 80%; /* Start from right */
+  animation: floatDiagonalLeft 28s -14s infinite ease-in-out;
+}
+.droplet-4 {
+  width: 90px; height: 90px;
+  left: 90%; /* Start from right */
+  animation: floatDown 22s -5s infinite linear;
+}
+.droplet-5 {
+  width: 130px; height: 130px;
+  left: 40%; /* Start from middle */
+  animation: floatUp 35s -20s infinite ease-in-out;
+}
+.droplet-6 {
+  width: 70px; height: 70px;
+  left: 10%; /* Start from left */
+  animation: floatDiagonalRight 26s -12s infinite linear;
+}
+.droplet-7 {
+  width: 110px; height: 110px;
+  left: 60%; /* Start from middle-right */
+  animation: floatDown 24s -18s infinite ease-in-out;
+}
+.droplet-8 {
+  width: 95px; height: 95px;
+  left: 30%; /* Start from middle-left */
+  animation: floatDiagonalRight 32s -25s infinite linear;
+}
