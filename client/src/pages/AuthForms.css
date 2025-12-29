@@ -1,0 +1,114 @@
+/* This styles the white box container for Login and Register */
+.auth-form-container {
+  max-width: 450px;
+  margin: 80px auto; /* More space from the top */
+  padding: 28px 32px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-out; /* Use the fade-in we made */
+}
+
+.auth-form h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+.auth-form-group {
+  margin-bottom: 20px;
+}
+
+.auth-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* --- THIS IS THE FIX for input size --- */
+.auth-input {
+  width: 100%;
+  padding: 12px 14px; /* Same padding for both */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* This is key! */
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+}
+/* --- End of input size fix --- */
+
+
+/* --- THIS IS THE "VIEW PASSWORD" FEATURE --- */
+
+/* 1. We need a wrapper to position the icon */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* 2. We style the icon itself */
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+  padding: 4px; /* Makes it easier to click */
+}
+
+/* 3. We add a little extra padding to the password input 
+   so the text doesn't run under the icon */
+.auth-input.password-input {
+  padding-right: 45px; /* 14px default + 31px for icon */
+}
+/* --- End of "View Password" feature --- */
+
+
+/* --- The main login/register button --- */
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-button:hover {
+  background-color: #e00040;
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(255, 56, 92, 0.4);
+}
+
+.auth-switch-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.auth-switch-link a {
+  color: var(--airbnb-red, #ff385c);
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-switch-link a:hover {
+  text-decoration: underline;
+}

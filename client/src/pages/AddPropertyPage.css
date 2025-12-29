@@ -1,0 +1,113 @@
+/* This is the main white box for the form */
+.form-container {
+  max-width: 650px;
+  margin: 40px auto; /* Centers the form on the page */
+  padding: 28px 32px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Soft shadow */
+}
+
+/* The "Add a New Property" title */
+.form-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+/* This styles each "block" (label + input) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* This styles the labels (Title, Address, etc.) */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* This styles all the text boxes and number inputs */
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* This is crucial! */
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* This styles the file upload button */
+.form-container input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* A nice blue "glow" when you click into a box */
+.form-container input[type="text"]:focus,
+.form-container input[type="number"]:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+}
+
+/* Style the "OR" text */
+.form-container p {
+  text-align: center;
+  margin: 20px 0;
+  color: #777;
+  font-weight: 600;
+  position: relative;
+}
+
+/* This adds the lines on either side of "OR" */
+.form-container p::before,
+.form-container p::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #ddd;
+}
+.form-container p::before { left: 0; }
+.form-container p::after { right: 0; }
+
+
+/* --- THE AIRBNB-STYLE BUTTON --- */
+.form-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff385c; /* Airbnb's signature pink/red */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 10px;
+}
+
+.form-button:hover {
+  background-color: #e00040; /* A slightly darker red on hover */
+  transform: scale(1.02); /* --- NEW: Makes the button grow slightly --- */
+  box-shadow: 0 4px 20px rgba(255, 56, 92, 0.4); /* --- NEW: Adds a red glow --- */
+}
+
+/* This styles the button when it's disabled (e.g., during upload) */
+.form-button:disabled {
+  background-color: #f0a0af; /* A faded pink */
+  cursor: not-allowed;
+}

@@ -1,0 +1,103 @@
+/* src/pages/HomePage.css */
+
+/* --- NEW: FADE-IN ANIMATION --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 24px auto;
+}
+
+.home-container h2.properties-header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* --- UPDATED: 3-COLUMN GRID --- */
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  gap: 24px;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 900px) {
+  .properties-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+}
+@media (max-width: 600px) {
+  .properties-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+}
+/* --- End of grid update --- */
+
+
+.property-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.property-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  
+  /* --- UPDATED: ANIMATION & TRANSITION --- */
+  animation: fadeIn 0.5s ease-out;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.property-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12); /* --- Deeper shadow --- */
+  transform: translateY(-4px) scale(1.02);
+}
+
+.property-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.property-info {
+  padding: 12px 16px;
+}
+
+.property-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.property-address {
+  font-size: 0.95rem;
+  color: #717171;
+  margin: 4px 0;
+}
+
+.property-price {
+  font-size: 1rem;
+  color: #222;
+  margin-top: 10px;
+}
+
+.property-price strong {
+  font-weight: 700;
+}
